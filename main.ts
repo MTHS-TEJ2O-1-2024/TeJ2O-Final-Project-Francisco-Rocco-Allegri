@@ -1,6 +1,6 @@
 /* Copyright (c) 2020 MTHS All rights reserved
  *
- * Created by: Francisco Rocco Allegri and Gavin Gallant
+ * Created by: Francisco Rocco Allegri
  * Created on: January 2025
  * This program creates a sequencive password that can only be "unlocked" with a specific order
 */
@@ -26,30 +26,37 @@ basic.showLeds(`
 passwordInput = 0
 attempts = 0
 
-// Increment password input with A button
-input.onButtonPressed(Button.A, function () {
-    if (attempts < maxAttempts) {
+// Increase password input with A button
+input.onButtonPressed(Button.A, function () 
+{
+    if (attempts < maxAttempts) 
+    {
         passwordInput += 1
         basic.showNumber(passwordInput)
     }
 })
 
-// Decrement password input with B button
-input.onButtonPressed(Button.B, function () {
-    if (attempts < maxAttempts) {
+// Decrease password input with B button
+input.onButtonPressed(Button.B, function () 
+{
+    if (attempts < maxAttempts) 
+    {
         passwordInput -= 1
         basic.showNumber(passwordInput)
     }
 })
 
 // Verify password when A+B buttons are pressed
-input.onButtonPressed(Button.AB, function () {
+input.onButtonPressed(Button.AB, function () 
+{
     attempts += 1
 
-    if (passwordInput == correctPassword) {
+    if (passwordInput == correctPassword) 
+    {
         basic.showIcon(IconNames.Yes) // Show success icon if correct
         music.playMelody("C5 B A G F E D C ", 120)
-    } else if (attempts >= maxAttempts) {
+    } else if (attempts >= maxAttempts) 
+    {
         basic.showIcon(IconNames.No) // Show failure icon if out of attempts
         music.playMelody("C D E F G A B C5 ", 120)
     } else {
